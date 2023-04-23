@@ -1,0 +1,58 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+</head>
+<body>
+    {% include 'appli/navbar.html' %}
+    <h1 class="text-center my-4">Student Management</h1>
+    <h1 class="text-center my-4">List of Student</h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>NOBA</th>
+                                    <th>ROLL</th>
+                                    <th>NAME</th>
+                                    <th>EMAIL</th>
+                                    <th>ADDRESS</th>
+                                    <th>PHONE</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                    {% for s in std %}
+                                    <tr>
+                                        <td>{{forloop.counter}}</td>
+                                        <td>{{s.roll}}</td>
+                                        <td>{{s.name}}</td>
+                                        <td>{{s.email}}</td>
+                                        <td>{{s.address}}</td>
+                                        <td>{{s.phone}}</td>
+                                        <td>
+                                            <a href="/test/delete-std/{{s.id}}" class="btn btn-danger md-sm">Delete</a>
+                                            <a href="/test/update-std/{{s.id}}" class="btn btn-success md-sm">Update</a>
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'js/jquery-slim.min.js' %}"></script>
+    <script src="{% static 'js/popper.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</body>
+</html>

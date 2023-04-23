@@ -1,0 +1,7 @@
+{% autoescape off %}
+    Bienvenu sur donfack pro login system
+    Bonjour{{ user.name }}
+    Confirmer votre address email en clickant sur le lien suivant 
+
+    lien: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}
